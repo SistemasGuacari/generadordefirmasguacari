@@ -1,0 +1,148 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  /* Añade comillas simples alrededor de Arial */
+  background-color: #aeffa3;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 50%;
+  /* Utiliza max-width para una mejor adaptabilidad a diferentes tamaños de pantalla */
+  width: 500px;
+  /* Ancho fijo para pantallas más grandes */
+  margin: 50px auto;
+  padding: 20px;
+  /* Aumenta el padding para mayor espacio interno */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  /* Aumenta el margen inferior para separar el título del contenido */
+}
+
+/* Estilos de los campos de entrada */
+label {
+  display: block;
+  margin-bottom: 8px;
+  /* Aumenta el margen inferior para mejorar la legibilidad */
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  width: calc(100% - 24px);
+  /* Resta el padding para evitar que el campo se desborde */
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #a8a8a8;
+  border-radius: 5px;
+  cursor: auto;
+  /* Cambia el cursor a auto para que no aparezca el puntero */
+
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #00b500;
+  /* Cambio de color al enfocar */
+  box-shadow: 5px 5px 10px #00b500;
+}
+
+input[type="text"]:hover,
+select:hover {
+  border-color: #00b500;
+  /* Cambio de color al enfocar */
+  box-shadow: 5px 5px 10px #00b500;
+}
+
+
+/* Estilos de la firma generada */
+#firma-container {
+  position: relative;
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px dashed #ccc;
+  background-color: #f9f9f9;
+  text-align: center;
+  /* Centra el contenido de la firma */
+}
+
+#firma-container img {
+  max-width: 120px;
+  /* Aumenta el tamaño máximo de la imagen del logo */
+  margin-bottom: 15px;
+  /* Añade margen inferior al logo */
+}
+
+#firma-container .firma {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  /* Aumenta ligeramente el tamaño de fuente de la firma */
+}
+
+#firma-container::before {
+  /* Agrega una pseudo-clase para la imagen de fondo */
+  content: '';
+  background-image: url('fondo_firma.jpg');
+  /* Reemplaza con la ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  /* Ajusta la opacidad de la imagen de fondo */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ... (estilos anteriores) ... */
+
+#logo-empresa {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+  /* Ajusta el ancho máximo según tus preferencias */
+  margin-bottom: 20px;
+}
+
+/* Estilos de los botones */
+button.btn-primary {
+  background-color: #000000;
+  /* Cambio de color */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: auto;
+  font-size: 16px;
+  transition: background-color 0.5s ease;
+}
+
+button.btn-primary:hover {
+  background-color: #00b500;
+}
+
+button.btn-secondary {
+  background-color: #000000;
+  /* Cambio de color */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: zoom-in;
+  font-size: 16px;
+  transition: background-color 0.5s ease;
+}
+
+button.btn-secondary:hover {
+  background-color: #00b500;
+}

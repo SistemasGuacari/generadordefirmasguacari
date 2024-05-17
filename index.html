@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GENERADOR DE FIRMAS PERSONALIZADAS PARQUE COMERCIAL GUACARÍ P.H.</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- <script src="Vibrant.min.js"></script> -->
+  <script src="script.js"></script>
+  <div class="container">
+    <h4>GENERADOR DE FIRMAS PERSONALIZADAS PARQUE COMERCIAL GUACARÍ P.H.</h4>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre Completo:</label>
+        <input type="text" id="nombre" class="form-control" autocomplete="off" placeholder="Digite su nombre completo"
+          data-name="Digite su nombre completo">
+        <span id="nombreError" class="text-danger"></span>
+      </div>
+      <div class="col-md-6">
+        <label for="cargo" class="form-label">Cargo:</label>
+        <input type="text" id="cargo" class="form-control" autocomplete="off" placeholder="Digite su cargo"
+          data-name="Digite su cargo">
+        <span id="cargoError" class="text-danger"></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="dependencia" class="form-label">Dependencia/Procesos:</label>
+        <select id="dependencia" class="form-select">
+          <option value=" ">Seleccione su dependencia </option>
+          <option value="Direccionamiento estratégico">Direccionamiento estratégico </option>
+          <option value="Mejoramiento continuo">Mejoramiento continuo</option>
+          <option value="Gestión de relaciones públicas y comunicaciones"> Gestión de relaciones públicas y
+            comunicaciones</option>
+          <option value="Gestión de mercadeo">Gestión de mercadeo</option>
+          <option value="Gestión ambiental">Gestión ambiental</option>
+          <option value="Gestión de operaciones - Mantenimiento">Gestión de operaciones - Mantenimiento</option>
+          <option value="Gestión de operaciones - Servicios generales">Gestión de operaciones - Servicios generales
+          </option>
+          <option value="Gestión administrativa y contable">Gestión administrativa y contable</option>
+          <option value="Gestión humana y SST">Gestión humana y SST</option>
+        </select>
+        <span id="dependenciaError" class="text-danger"></span>
+      </div>
+      <div class="col-md-6">
+        <label for="direccion" class="form-label">Dirección:</label>
+        <input type="text" id="direccion" class="form-control" value="Calle 28 N°25B-365 Barrio Boston, Sincelejo">
+        <span id="direccionError" class="text-danger"></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="telefono" class="form-label">Teléfono:</label>
+        <input type="text" id="telefono" class="form-control" value="+605 2720005 / Ext. ">
+        <span id="telefonoError" class="text-danger"></span>
+      </div>
+
+    </div>
+
+    <br>
+    <button onclick="validarCampos(generarYDescargarFirma)" class="btn btn-primary">Generar y Descargar Firma</button>
+    <button onclick="validarCampos(generarFirma)" class="btn btn-secondary">Generar Firma</button>
+
+    <div id="firma" class="firma mt-3"></div>
+  </div>
+
+  <script>
+    function validarCampos(callback) {
+      var nombre = document.getElementById("nombre").value;
+      var cargo = document.getElementById("cargo").value;
+      var dependencia = document.getElementById("dependencia").value;
+      var direccion = document.getElementById("direccion").value;
+      var telefono = document.getElementById("telefono").value;
+
+      var isValid = true;
+
+      if (nombre.trim() === '') {
+        document.getElementById("nombreError").innerText = "Este campo es obligatorio.";
+        isValid = false;
+      } else {
+        document.getElementById("nombreError").innerText = "";
+      }
+
+      if (cargo.trim() === '') {
+        document.getElementById("cargoError").innerText = "Este campo es obligatorio.";
+        isValid = false;
+      } else {
+        document.getElementById("cargoError").innerText = "";
+      }
+
+      if (dependencia.trim() === '') {
+        document.getElementById("dependenciaError").innerText = "Este campo es obligatorio.";
+        isValid = false;
+      } else {
+        document.getElementById("dependenciaError").innerText = "";
+      }
+
+      if (direccion.trim() === '') {
+        document.getElementById("direccionError").innerText = "Este campo es obligatorio.";
+        isValid = false;
+      } else {
+        document.getElementById("direccionError").innerText = "";
+      }
+
+      if (telefono.trim() === '') {
+        document.getElementById("telefonoError").innerText = "Este campo es obligatorio.";
+        isValid = false;
+      } else {
+        document.getElementById("telefonoError").innerText = "";
+      }
+
+      if (isValid && callback) {
+        callback();
+      }
+    }
+
+    function generarYDescargarFirma() {
+      validarCampos(function () {
+        generarFirma();
+        descargarFirma();
+      });
+    }
+
+    function generarFirma() {
+      var nombre = document.getElementById("nombre").value;
+      var cargo = document.getElementById("cargo").value;
+      var dependencia = document.getElementById("dependencia").value;
+      var direccion = document.getElementById("direccion").value;
+      var telefono = document.getElementById("telefono").value;
+
+      var firmaHTML = `
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Contenido izquierdo -->
+        <img src="logo_empresa.png" style="width: 100%; float: left; margin-right: 10px;">
+      </div>
+      <div class="col-md-6">
+        <!-- Contenido derecho -->
+        <div class="d-flex align-items-center mt-4" style="font-family: Arial, sans-serif;">
+          <div class="me-3"> <!-- Espacio a la derecha -->
+            <div class="d-flex flex-column">
+              <img src="guc.png" class="img-fluid mb-2" style="width: 5rem;">
+              <img src="pgs.png" class="img-fluid" style="width: 5rem;">
+            </div>
+          </div>
+          <div>
+            <p>
+              <b>${nombre}</b><br>
+              ${cargo}<br>
+              ${dependencia}<br>
+              ${telefono}<br>
+              ${direccion}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+      document.getElementById("firma").innerHTML = firmaHTML;
+    }
+
+    function descargarFirma() {
+      html2canvas(document.getElementById('firma')).then(function (canvas) {
+        var link = document.createElement("a");
+        document.body.appendChild(link);
+        link.download = "firma.png";
+        link.href = canvas.toDataURL();
+        link.target = '_blank';
+        link.click();
+      });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
